@@ -1,0 +1,43 @@
+\mode<presentation>
+
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{date}{size=\normalsize,series=\bfseries}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{institute}{size=\small}
+
+\setbeamertemplate{background}
+{
+	\begin{tikzpicture}
+		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,\paperheight);
+%		\draw [step=0.25\unit,black!5,thin] (0mm,0mm) grid (\paperwidth,\paperheight);
+%		\draw [step=\unit,black!10,thin] (0mm,0mm) grid (\paperwidth,\paperheight);
+		\coordinate (point) at (0.75\unit,1.25\unit);
+		\node (logo) [at=(current page.south east),anchor=south east,xshift=-0.5\unit,yshift=0.5\unit,inner sep=0.25\unit]
+		{
+			\includegraphics[height=0.75\unit]{\basepath/logos/fhooe.jpg}
+		};
+		\draw [-,rot,thick] (point) to (point-|logo.west);
+	\end{tikzpicture}
+}
+
+\setbeamertemplate{title page}
+{
+	\begin{beamercolorbox}{title}
+		\usebeamerfont{title}\inserttitle
+	\end{beamercolorbox}
+	\begin{beamercolorbox}{date}
+		\usebeamerfont{date}\insertdate
+	\end{beamercolorbox}
+	\vskip0.5\unit
+	\begin{beamercolorbox}{author}
+		\usebeamerfont{author}\insertauthor
+	\end{beamercolorbox}
+	\vskip0.5\unit
+	\begin{beamercolorbox}{institute}
+		\usebeamerfont{institute}\insertinstitute
+	\end{beamercolorbox}
+}
+
+\setbeamertemplate{itemize items}{--}
+
+\mode<all>

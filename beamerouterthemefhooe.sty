@@ -1,0 +1,249 @@
+\mode<presentation>
+
+\setbeamerfont{frame title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{frame sub title}{size=\Large,series=\bfseries}
+\setbeamerfont{section in toc}{series=\bfseries}
+
+\makeatletter
+	\pretocmd{\tableofcontents}{\vskip0.5em}{}{}
+	
+	\pretocmd{\beamer@sectionintoc}{\vskip0.5\itemsep}{}{}
+	\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{}{}{}
+	\apptocmd{\beamer@sectionintoc}{\vskip0.5\itemsep}{}{}
+	
+	\pretocmd{\beamer@subsectionintoc}{}{}{}
+	\apptocmd{\beamer@subsectionintoc}{}{}{}
+\makeatother
+
+\setbeamertemplate{section in toc}
+{
+	\hskip0.25\unit
+	\begin{tikzpicture}
+		\useasboundingbox (0mm,0mm) rectangle (1.3em,0.8em);
+		\fill [rot] (0mm,0mm) rectangle (0.8em,0.8em);
+		\node [white] at (0.4em,0.4em) {\tiny \inserttocsectionnumber};
+	\end{tikzpicture}%
+	\inserttocsection
+}
+
+\setbeamertemplate{subsection in toc}{
+	\hskip0.25\unit
+	\hskip1.8em
+	\begin{tikzpicture}
+		\useasboundingbox (0mm,0mm) rectangle (0.9em,0.8em);
+		\fill [rot] (0mm,0.2em) rectangle (0.4em,0.6em);
+	\end{tikzpicture}%
+	\inserttocsubsection
+	\par
+}
+
+\setbeamertemplate{frametitle}
+{
+	\begin{tikzpicture}
+		\useasboundingbox (0mm,0mm) rectangle (14.5\unit,1.5\unit);
+		\node[anchor=north west,inner sep=0] at (0,\unit)
+		{
+			\usebeamercolor[fg]{frame title}\usebeamerfont{frame title}\insertframetitle
+		};
+		\node[anchor=north west,inner sep=0] at (0,0.55\unit)
+		{
+			\usebeamercolor[fg]{frame sub title}\usebeamerfont{frame sub title}\insertframesubtitle
+		};
+	\end{tikzpicture}
+	\vspace*{-7.4mm}
+}
+
+\setbeamertemplate{headline}
+{
+	% Empty
+}
+
+\setbeamertemplate{footline}
+{
+	% Page number
+	\begin{tikzpicture}
+		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,1.5\unit);
+		\node[anchor=west,inner sep=0mm] at (0.75\unit,1.0\unit)
+		{
+			\tiny SEITE | \insertframenumber\ von \inserttotalframenumber
+		};
+	\end{tikzpicture}
+}
+
+\newcommand{\frameOneColumn}[4]
+{
+	\begin{frame}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\begin{columns}
+			\begin{column}{14.5\unit}
+				\begin{minipage}[c][6\unit][#3]{\textwidth}
+					#4
+				\end{minipage}
+			\end{column}
+		\end{columns}
+	\end{frame}
+}
+
+\newcommand{\frameTwoColumns}[5]
+{
+	\begin{frame}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\begin{columns}
+			\begin{column}{6.5\unit}
+				\begin{minipage}[c][6\unit][#3]{\textwidth}
+					#4
+				\end{minipage}
+			\end{column}
+			\begin{column}{6.5\unit}
+				\begin{minipage}[c][6\unit][#3]{\textwidth}
+					#5
+				\end{minipage}
+			\end{column}
+		\end{columns}
+	\end{frame}
+}
+
+\newcommand{\frameTwoColumnsReference}[6]
+{
+	\begin{frame}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\begin{minipage}[c][6\unit][c]{\textwidth}
+			\begin{columns}
+				\begin{column}{6.5\unit}
+					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
+						#4
+					\end{minipage}
+				\end{column}
+				\begin{column}{6.5\unit}
+					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
+						#5
+					\end{minipage}
+				\end{column}
+			\end{columns}
+			\vskip\itemsep
+			\centering
+			#6
+		\end{minipage}
+	\end{frame}
+}
+
+\newcommand{\frameThreeColumns}[6]
+{
+	\begin{frame}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\begin{columns}
+			\begin{column}{4.333\unit}
+				\begin{minipage}[c][6\unit][#3]{\textwidth}
+					#4
+				\end{minipage}
+			\end{column}
+			\begin{column}{4.333\unit}
+				\begin{minipage}[c][6\unit][#3]{\textwidth}
+					#5
+				\end{minipage}
+			\end{column}
+			\begin{column}{4.333\unit}
+				\begin{minipage}[c][6\unit][#3]{\textwidth}
+					#6
+				\end{minipage}
+			\end{column}
+		\end{columns}
+	\end{frame}
+}
+
+\newcommand{\frameThreeColumnsReference}[7]
+{
+	\begin{frame}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\begin{minipage}[c][6\unit][c]{\textwidth}
+			\begin{columns}
+				\begin{column}{4.333\unit}
+					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
+						#4
+					\end{minipage}
+				\end{column}
+				\begin{column}{4.333\unit}
+					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
+						#5
+					\end{minipage}
+				\end{column}
+				\begin{column}{4.333\unit}
+					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
+						#6
+					\end{minipage}
+				\end{column}
+			\end{columns}
+			\vskip\itemsep
+			\centering
+			#7
+		\end{minipage}
+	\end{frame}
+}
+
+\newcommand{\contentImage}[1]
+{
+	\centering
+	\includegraphics[height=5\unit]{./images/#1}
+}
+
+\newcommand{\contentImageReference}[2]
+{
+	\centering
+	\includegraphics[height=4.5\unit]{./images/#1}
+	\vskip\itemsep
+	#2
+}
+
+\newcommand{\contentIcon}[1]
+{
+	\centering {\transparent{0.25}\includegraphics[height=3\unit]{./icons/#1}}
+}
+
+\newcommand{\contentThemeIcon}[1]
+{
+	\centering {\transparent{0.25}\includegraphics[height=3\unit]{\basepath/icons/#1}}
+}
+
+\newcommand{\contentWeb}[3]
+{
+	\begin{flushleft}
+		\textbf{\href{#1}{#2}}
+	\end{flushleft}
+	\begin{flushleft}
+		#3
+	\end{flushleft}
+}
+
+%\AtBeginSection{
+%	% Section overview
+%	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+%	{
+%		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
+%	}{
+%		\contentThemeIcon{outline.png}
+%	}
+%	% Subsection overview
+%	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+%	{
+%		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide,subsubsectionstyle=hide]
+%	}{
+%		\contentThemeIcon{outline.png}
+%	}
+%}
+
+\AtBeginSubsection{
+	% Subsection overview
+	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+	{
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
+	}{
+		\contentThemeIcon{outline.png}
+	}
+}
+
+\mode<all>
