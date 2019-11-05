@@ -73,8 +73,8 @@
 \newcommand{\frameOneColumn}[4]
 {
 	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
 			\begin{column}{14.5\unit}
 				\begin{minipage}[c][6\unit][#3]{\textwidth}
@@ -88,8 +88,8 @@
 \newcommand{\frameTwoColumns}[5]
 {
 	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
 			\begin{column}{6.5\unit}
 				\begin{minipage}[c][6\unit][#3]{\textwidth}
@@ -108,8 +108,8 @@
 \newcommand{\frameTwoColumnsReference}[6]
 {
 	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{minipage}[c][6\unit][c]{\textwidth}
 			\begin{columns}
 				\begin{column}{6.5\unit}
@@ -133,8 +133,8 @@
 \newcommand{\frameThreeColumns}[6]
 {
 	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
 			\begin{column}{4.333\unit}
 				\begin{minipage}[c][6\unit][#3]{\textwidth}
@@ -158,8 +158,8 @@
 \newcommand{\frameThreeColumnsReference}[7]
 {
 	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\secname~--~\subsecname}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\subsubsecname}{#2}}
+		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
+		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{minipage}[c][6\unit][c]{\textwidth}
 			\begin{columns}
 				\begin{column}{4.333\unit}
@@ -187,7 +187,7 @@
 
 \newcommand{\frameSectionTOC}[1]
 {
-	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+	\frameTwoColumns{\sectiontocframetitle}{\sectiontocframesubtitle}{c}
 	{
 		\tableofcontents[sectionstyle=show/#1,subsectionstyle=hide,subsubsectionstyle=hide]
 	}{
@@ -197,7 +197,7 @@
 
 \newcommand{\frameSubsectionTOC}[1]
 {
-	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+	\frameTwoColumns{\subsectiontocframetitle}{\subsectiontocframesubtitle}{c}
 	{
 		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/#1/hide,subsubsectionstyle=hide]
 	}{
