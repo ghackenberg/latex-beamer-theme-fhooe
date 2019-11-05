@@ -185,6 +185,26 @@
 	\end{frame}
 }
 
+\newcommand{\frameSectionTOC}[1]
+{
+	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+	{
+		\tableofcontents[sectionstyle=show/#1,subsectionstyle=hide,subsubsectionstyle=hide]
+	}{
+		\contentThemeIcon{outline.png}
+	}
+}
+
+\newcommand{\frameSubsectionTOC}[1]
+{
+	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
+	{
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/#1/hide,subsubsectionstyle=hide]
+	}{
+		\contentThemeIcon{outline.png}
+	}
+}
+
 \newcommand{\contentImage}[1]
 {
 	\centering
@@ -217,33 +237,6 @@
 	\begin{flushleft}
 		#3
 	\end{flushleft}
-}
-
-\AtBeginSection{
-	% Section overview
-	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
-	{
-		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
-	}{
-		\contentThemeIcon{outline.png}
-	}
-	% Subsection overview
-	\frameTwoColumns{\inserttitle}{Inhaltsverzeichnis}{c}
-	{
-		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide,subsubsectionstyle=hide]
-	}{
-		\contentThemeIcon{outline.png}
-	}
-}
-
-\AtBeginSubsection{
-	% Subsection overview
-	\frameTwoColumns{\inserttitle{} -- \insertsubtitle}{Inhaltsverzeichnis}{c}
-	{
-		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
-	}{
-		\contentThemeIcon{outline.png}
-	}
 }
 
 \mode<all>
