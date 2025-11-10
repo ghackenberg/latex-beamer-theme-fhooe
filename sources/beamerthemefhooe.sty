@@ -10,10 +10,14 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\defaultframetitle}{
-    \ifthenelse{\equal{\subsecname}{}}{
-        \insertshorttitle~--~\insertshortsubtitle~/~\secname
+    \ifthenelse{\equal{\secname}{}}{
+        \insertshorttitle~--~\insertshortsubtitle
     }{
-        \insertshorttitle~--~\insertshortsubtitle~/~\secname~--~\subsecname
+        \ifthenelse{\equal{\subsecname}{}}{
+            \insertshorttitle~--~\insertshortsubtitle~/~\secname
+        }{
+            \insertshorttitle~--~\insertshortsubtitle~/~\secname~--~\subsecname
+        }
     }
 }
 \newcommand{\defaultframesubtitle}{\textit{Untertitel fehlt!}}
