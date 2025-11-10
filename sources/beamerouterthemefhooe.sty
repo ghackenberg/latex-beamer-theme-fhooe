@@ -74,87 +74,66 @@
 	\end{columns}
 }
 
-\newcommand{\frameOneColumn}[4]
+\newcommand\colcount{}
+\newcommand\colalign{}
+\newcounter{colnumber}
+
+\newenvironment{cframe}[4]
 {
+	\def\colcount{#3}
+	\def\colalign{#4}
+	\setcounter{colnumber}{0}
 	\begin{frame}
 		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
 		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
-		\begin{columns}
-			\begin{column}{15\unit}
-				\begin{minipage}[c][7\unit][#3]{\textwidth}
-					#4
-				\end{minipage}
-			\end{column}
-		\end{columns}
+}
+{
 	\end{frame}
 }
 
-\newcommand{\frameTwoColumns}[5]
-{
-	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
-		\begin{columns}
-			\begin{column}{7.25\unit}
-				\begin{minipage}[c][7\unit][#3]{\textwidth}
-					#4
-				\end{minipage}
-			\end{column}
-			\hspace{0.5\unit}
-			\begin{column}{7.25\unit}
-				\begin{minipage}[c][7\unit][#3]{\textwidth}
-					#5
-				\end{minipage}
-			\end{column}
-		\end{columns}
-	\end{frame}
-}
+\newcommand\colwidth[1]{\dimexpr(15\unit-0.5\unit*(#1-1))/#1\relax}
+\newcommand\colspace[0]{\vspace{0.5\unit}}
 
-\newcommand{\frameThreeColumns}[6]
+\newenvironment{ccolumn}
 {
-	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
-		\begin{columns}
-			\begin{column}{4.66\unit}
-				\begin{minipage}[c][7\unit][#3]{\textwidth}
-					#4
-				\end{minipage}
-			\end{column}
-			\hspace{0.5\unit}
-			\begin{column}{4.66\unit}
-				\begin{minipage}[c][7\unit][#3]{\textwidth}
-					#5
-				\end{minipage}
-			\end{column}
-			\hspace{0.5\unit}
-			\begin{column}{4.66\unit}
-				\begin{minipage}[c][7\unit][#3]{\textwidth}
-					#6
-				\end{minipage}
-			\end{column}
-		\end{columns}
-	\end{frame}
+	\addtocounter{colnumber}{1}
+	\ifthenelse{\value{colnumber}=1}{}{
+		\colspace
+	}
+	\begin{column}{\colwidth{\colcount}}
+		\begin{minipage}[c][7\unit][\colalign]{\textwidth}
+}
+{
+		\end{minipage}
+	\end{column}
 }
 
 \newcommand{\frameSectionTOC}[1]
 {
-	\frameTwoColumns{\sectiontocframetitle}{\sectiontocframesubtitle}{c}
-	{
-		\tableofcontents[sectionstyle=show/#1,subsectionstyle=hide,subsubsectionstyle=hide]
-	}{
-		\contentThemeIcon{outline.png}
-	}
+	\begin{cframe}{\sectiontocframetitle}{\sectiontocframesubtitle}{2}{c}
+		\begin{columns}
+			\begin{ccolumn}
+				\tableofcontents[sectionstyle=show/#1,subsectionstyle=hide,subsubsectionstyle=hide]
+			\end{ccolumn}
+			\begin{ccolumn}
+				\contentThemeIcon{outline.png}
+			\end{ccolumn}
+		\end{columns}
+	\end{cframe}
 }
 
 \newcommand{\frameSubsectionTOC}[1]
 {
-	\frameTwoColumns{\subsectiontocframetitle}{\subsectiontocframesubtitle}{c}
-	{
-		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/#1/hide,subsubsectionstyle=hide]
-	}{
-		\contentThemeIcon{outline.png}
-	}
+	\begin{cframe}{\subsectiontocframetitle}{\subsectiontocframesubtitle}{2}{c}
+		\begin{columns}
+			\begin{ccolumn}
+				\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/#1/hide,subsubsectionstyle=hide]
+			\end{ccolumn}
+			\begin{ccolumn}
+				\contentThemeIcon{outline.png}
+			\end{ccolumn}
+		\end{columns}
+	\end{cframe}
 }
 
 \newcommand{\contentThemeIcon}[1]
