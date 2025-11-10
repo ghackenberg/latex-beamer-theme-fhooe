@@ -1,0 +1,10 @@
+examples/*/*.aux
+examples/*/*.fdb_latexmk
+examples/*/*.fls
+examples/*/*.log
+examples/*/*.nav
+examples/*/*.out
+examples/*/*.pdf
+examples/*/*.snm
+examples/*/*.synctex.gz
+examples/*/*.toc

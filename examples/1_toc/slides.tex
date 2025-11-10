@@ -1,0 +1,96 @@
+\documentclass[aspectratio=169]{beamer}
+
+\newcommand{\basepath}{../../sources}
+\usepackage{\basepath/beamerthemefhooe}
+
+\newcommand{\sectiontocframetitle}{\inserttitle~--~\insertsubtitle}
+\newcommand{\sectiontocframesubtitle}{Inhaltsverzeichnis}
+
+\newcommand{\subsectiontocframetitle}{\inserttitle~--~\insertsubtitle}
+\newcommand{\subsectiontocframesubtitle}{Inhaltsverzeichnis}
+
+\AtBeginSection{\frameSectionTOC{shaded}}
+\AtBeginSubsection{\frameSubsectionTOC{shaded}{shaded}}
+
+\newcommand{\defaultframetitle}{\inserttitle~--~\insertsubtitle}
+\newcommand{\defaultframesubtitle}{\secname~--~\subsecname~--~\subsubsecname}
+
+\title{Titel}
+\subtitle{Untertitel}
+\author{%
+	Dr.\ rer.\ nat.\ Georg Hackenberg\\
+	Professur für Informatik und Industriesysteme\\
+	\href{mailto:georg.hackenberg@fh-wels.at}{georg.hackenberg@fh-wels.at}
+}
+\institute{%
+	Fachhochschule Oberösterreich\\
+	Fakultät für Technik und Angewandte Naturwissenschaften\\
+	Stelzhamerstraße 28, 4600 Wels, Österreich
+}
+\date{Datum}
+
+\begin{document}
+
+\begin{frame}[b]
+\titlepage
+\end{frame}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\section{Erster Abschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\subsection{Erster Unterabschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\subsection{Zweiter Unterabschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\section{Zweiter Abschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\subsection{Erster Unterabschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\subsection{Zweiter Unterabschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\section{Dritter Abschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\subsection{Erster Unterabschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\subsection{Zweiter Unterabschnitt}
+
+\begin{frame}
+Hello, Beamer!
+\end{frame}
+
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass[aspectratio=169]{beamer}
+
+\newcommand{\basepath}{../../sources}
+\usepackage{\basepath/beamerthemefhooe}
+
+\title{Titel}
+\subtitle{Untertitel}
+
+\newcommand{\defaultframetitle}{\inserttitle~--~\insertsubtitle}
+\newcommand{\defaultframesubtitle}{\secname~--~\subsecname~--~\subsubsecname}
+
+\begin{document}
+
+\section{Abschnitt}
+
+\subsection{Unterabschnitt}
+
+\subsubsection{Unterunterabschnitt}
+
+\frameOneColumn{}{}{c}
+{
+    Test
+}
+
+\frameTwoColumns{}{}{c}
+{
+    Linke Spalte
+}
+{
+    Rechte Spalte
+}
+
+\frameThreeColumns{}{}{c}
+{
+    Linke Spalte
+}
+{
+    Mittlere Spalte
+}
+{
+    Rechte Spalte
+}
+
+\end{document}
