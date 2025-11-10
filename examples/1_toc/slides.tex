@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,8pt]{beamer}
 
 \newcommand{\basepath}{../../sources}
 \usepackage{\basepath/beamerthemefhooe}
@@ -10,10 +10,10 @@
 \newcommand{\subsectiontocframesubtitle}{Inhaltsverzeichnis}
 
 \AtBeginSection{\frameSectionTOC{shaded}}
-\AtBeginSubsection{\frameSubsectionTOC{shaded}{shaded}}
+\AtBeginSubsection{\frameSubsectionTOC{shaded}}
 
-\newcommand{\defaultframetitle}{\inserttitle~--~\insertsubtitle}
-\newcommand{\defaultframesubtitle}{\secname~--~\subsecname~--~\subsubsecname}
+\newcommand{\defaultframetitle}{\inserttitle~--~\insertsubtitle~--~\secname~--~\subsecname}
+\newcommand{\defaultframesubtitle}{Untertitel fehlt!}
 
 \title{Titel}
 \subtitle{Untertitel}
@@ -22,7 +22,7 @@
 	Professur für Informatik und Industriesysteme\\
 	\href{mailto:georg.hackenberg@fh-wels.at}{georg.hackenberg@fh-wels.at}
 }
-\institute{%
+\institute[Fakultät für Technik und angewante Naturwissenschaften, FH Oberösterreich]{%
 	Fachhochschule Oberösterreich\\
 	Fakultät für Technik und Angewandte Naturwissenschaften\\
 	Stelzhamerstraße 28, 4600 Wels, Österreich

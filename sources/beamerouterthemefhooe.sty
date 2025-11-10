@@ -41,7 +41,7 @@
 {
 	\begin{minipage}[c][1\unit][c]{14.5\unit}
 		\usebeamercolor[fg]{frame title}\usebeamerfont{frame title}\insertframetitle
-		
+
 		\usebeamercolor[fg]{frame sub title}\usebeamerfont{frame sub title}\insertframesubtitle
 	\end{minipage}
 	\vspace{-0.075\unit}
@@ -58,7 +58,7 @@
 		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,1\unit);
 		\node[anchor=west,inner sep=0mm] at (0.5\unit,0.5\unit)
 		{
-			\footnotesize \insertshortauthor
+			\footnotesize \insertshortauthor ~--~ \insertshortinstitute
 		};
 		\node[anchor=east,inner sep=0mm] at (\paperwidth-0.5\unit,0.5\unit)
 		{
@@ -150,38 +150,9 @@
 	}
 }
 
-\newcommand{\contentImage}[1]
-{
-	\centering
-	\includegraphics[height=5\unit]{./images/#1}
-}
-
-\newcommand{\contentImageReference}[2]
-{
-	\centering
-	\includegraphics[height=4.5\unit]{./images/#1}
-	\vskip\itemsep
-	#2
-}
-
-\newcommand{\contentIcon}[1]
-{
-	\centering {\transparent{0.25}\includegraphics[height=3\unit]{./icons/#1}}
-}
-
 \newcommand{\contentThemeIcon}[1]
 {
 	\centering {\transparent{0.25}\includegraphics[height=3\unit]{\basepath/icons/#1}}
-}
-
-\newcommand{\contentWeb}[3]
-{
-	\begin{flushleft}
-		\textbf{\href{#1}{#2}}
-	\end{flushleft}
-	\begin{flushleft}
-		#3
-	\end{flushleft}
 }
 
 \mode<all>
