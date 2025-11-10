@@ -1,7 +1,7 @@
 \mode<presentation>
 
-\setbeamerfont{frame title}{size=\normalsize,series=\bfseries}
-\setbeamerfont{frame sub title}{size=\Large,series=\bfseries}
+\setbeamerfont{frame title}{size=\footnotesize,series=\bfseries}
+\setbeamerfont{frame sub title}{size=\normalsize,series=\bfseries}
 \setbeamerfont{section in toc}{series=\bfseries}
 
 \makeatletter
@@ -39,14 +39,12 @@
 
 \setbeamertemplate{frametitle}
 {
-	\begin{tikzpicture}
-		\useasboundingbox (0mm,0mm) rectangle (14.5\unit,1\unit);
-		\node[anchor=west,inner sep=0] at (0\unit,0.5\unit)
-		{
-			\usebeamercolor[fg]{frame sub title}\usebeamerfont{frame sub title}\insertframesubtitle
-		};
-	\end{tikzpicture}
-	\vspace{-0.15\unit}
+	\begin{minipage}[c][1\unit][c]{14.5\unit}
+		\usebeamercolor[fg]{frame title}\usebeamerfont{frame title}\insertframetitle
+
+		\usebeamercolor[fg]{frame sub title}\usebeamerfont{frame sub title}\insertframesubtitle
+	\end{minipage}
+	\vspace{-0.085\unit}
 }
 
 \setbeamertemplate{headline}
@@ -60,7 +58,7 @@
 		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,1\unit);
 		\node[anchor=west,inner sep=0mm] at (0.5\unit,0.5\unit)
 		{
-			\tiny \insertshortauthor ~--~ \inserttitle ~--~ \insertsubtitle
+			\tiny \insertshortauthor
 		};
 		\node[anchor=east,inner sep=0mm] at (\paperwidth-0.5\unit,0.5\unit)
 		{
@@ -71,7 +69,7 @@
 
 \newcommand{\frameOneColumn}[4]
 {
-	\begin{frame}%
+	\begin{frame}
 		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
 		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
