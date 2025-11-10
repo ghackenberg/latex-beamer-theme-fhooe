@@ -5,8 +5,27 @@
 \usepackage{etoolbox}
 \usepackage{ifthen}
 \usepackage{transparent}
+\usepackage{setspace}
 
 \renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\defaultframetitle}{
+    \ifthenelse{\equal{\subsecname}{}}{
+        \insertshorttitle~--~\insertshortsubtitle~/~\secname
+    }{
+        \insertshorttitle~--~\insertshortsubtitle~/~\secname~--~\subsecname
+    }
+}
+\newcommand{\defaultframesubtitle}{\textit{Untertitel fehlt!}}
+
+\newcommand{\sectiontocframetitle}{\inserttitle~--~\insertsubtitle}
+\newcommand{\sectiontocframesubtitle}{Inhaltsverzeichnis}
+
+\newcommand{\subsectiontocframetitle}{\inserttitle~--~\insertsubtitle}
+\newcommand{\subsectiontocframesubtitle}{Inhaltsverzeichnis}
+
+\AtBeginSection{\frameSectionTOC{shaded}}
+\AtBeginSubsection{\frameSubsectionTOC{shaded}}
 
 \newlength{\unit}
 \setlength{\unit}{0.0625\paperwidth}
@@ -23,6 +42,6 @@
 \usepackage{\basepath/beamerouterthemefhooe}
 \usepackage{\basepath/beamercolorthemefhooe}
 
-\offinterlineskip
+\onehalfspacing
 
 \mode<all>

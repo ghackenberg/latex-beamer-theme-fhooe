@@ -1,6 +1,7 @@
 \mode<presentation>
 
-\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize,series=\bfseries}
 \setbeamerfont{date}{size=\normalsize,series=\bfseries}
 \setbeamerfont{author}{size=\small}
 \setbeamerfont{institute}{size=\small}
@@ -26,7 +27,10 @@
 	\vspace{1\unit}
 	\begin{minipage}[c][7\unit][c]{\textwidth}
 		\begin{beamercolorbox}{title}
-			\usebeamerfont{title}\inserttitle{} -- \insertsubtitle
+			\usebeamerfont{title}\inserttitle
+		\end{beamercolorbox}
+		\begin{beamercolorbox}{subtitle}
+			\usebeamerfont{subtitle}\insertsubtitle
 		\end{beamercolorbox}
 		\begin{beamercolorbox}{date}
 			\usebeamerfont{date}\insertdate

@@ -39,12 +39,13 @@
 
 \setbeamertemplate{frametitle}
 {
-	\begin{minipage}[c][1\unit][c]{14.5\unit}
+	\vspace{-0.04\unit}
+	\begin{minipage}[centering][1\unit][c]{\textwidth}
 		\usebeamercolor[fg]{frame title}\usebeamerfont{frame title}\insertframetitle
-
+	
 		\usebeamercolor[fg]{frame sub title}\usebeamerfont{frame sub title}\insertframesubtitle
 	\end{minipage}
-	\vspace{-0.075\unit}
+	\vspace{-0.11\unit}
 }
 
 \setbeamertemplate{headline}
@@ -54,17 +55,23 @@
 
 \setbeamertemplate{footline}
 {
-	\begin{tikzpicture}
-		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,1\unit);
-		\node[anchor=west,inner sep=0mm] at (0.5\unit,0.5\unit)
-		{
-			\footnotesize \insertshortauthor ~--~ \insertshortinstitute
-		};
-		\node[anchor=east,inner sep=0mm] at (\paperwidth-0.5\unit,0.5\unit)
-		{
-			\footnotesize Seite \insertframenumber\ von \inserttotalframenumber
-		};
-	\end{tikzpicture}
+	\begin{columns}
+		\begin{column}{12\unit}
+			\begin{minipage}[c][1\unit][c]{\textwidth}
+				\footnotesize \textbf{\insertshortauthor}
+			
+				\footnotesize \insertshortinstitute
+			\end{minipage}
+		\end{column}
+		\hfill
+		\begin{column}{2\unit}
+			\begin{minipage}[c][1\unit][c]{\textwidth}
+				\begin{flushright}
+					\footnotesize Seite \insertframenumber\ von \inserttotalframenumber
+				\end{flushright}
+			\end{minipage}
+		\end{column}
+	\end{columns}
 }
 
 \newcommand{\frameOneColumn}[4]
