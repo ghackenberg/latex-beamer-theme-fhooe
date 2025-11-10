@@ -1,15 +1,32 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,9pt]{beamer}
 
 \newcommand{\basepath}{../../sources}
 \usepackage{\basepath/beamerthemefhooe}
 
 \title{Titel}
 \subtitle{Untertitel}
+\author[Dr.~Georg Hackenberg]{%
+	Dr.~Georg Hackenberg BSc MSc\\
+	Professor für Informatik und Industriesysteme\\
+	\href{mailto:georg.hackenberg@fh-wels.at}{georg.hackenberg@fh-wels.at}
+}
+\institute{%
+	Fachhochschule Oberösterreich\\
+	Fakultät für Technik und Angewandte Naturwissenschaften\\
+	Stelzhamerstraße 28, 4600 Wels, Österreich%
+}
+\date{\today}
 
 \newcommand{\defaultframetitle}{\inserttitle~--~\insertsubtitle}
 \newcommand{\defaultframesubtitle}{\secname~--~\subsecname~--~\subsubsecname}
 
+\addtobeamertemplate{frametitle}{}{}
+
 \begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
 
 \section{Abschnitt}
 

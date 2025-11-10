@@ -40,17 +40,13 @@
 \setbeamertemplate{frametitle}
 {
 	\begin{tikzpicture}
-		\useasboundingbox (0mm,0mm) rectangle (14.5\unit,1.5\unit);
-		\node[anchor=north west,inner sep=0] at (0,\unit)
-		{
-			\usebeamercolor[fg]{frame title}\usebeamerfont{frame title}\insertframetitle
-		};
-		\node[anchor=north west,inner sep=0] at (0,0.55\unit)
+		\useasboundingbox (0mm,0mm) rectangle (14.5\unit,1\unit);
+		\node[anchor=west,inner sep=0] at (0\unit,0.5\unit)
 		{
 			\usebeamercolor[fg]{frame sub title}\usebeamerfont{frame sub title}\insertframesubtitle
 		};
 	\end{tikzpicture}
-	\vspace*{-7.4mm}
+	\vspace{-0.15\unit}
 }
 
 \setbeamertemplate{headline}
@@ -60,24 +56,27 @@
 
 \setbeamertemplate{footline}
 {
-	% Page number
 	\begin{tikzpicture}
-		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,1.5\unit);
-		\node[anchor=west,inner sep=0mm] at (0.75\unit,1.0\unit)
+		\useasboundingbox (0mm,0mm) rectangle(\paperwidth,1\unit);
+		\node[anchor=west,inner sep=0mm] at (0.5\unit,0.5\unit)
 		{
-			\tiny SEITE | \insertframenumber\ von \inserttotalframenumber
+			\tiny \insertshortauthor ~--~ \inserttitle ~--~ \insertsubtitle
+		};
+		\node[anchor=east,inner sep=0mm] at (\paperwidth-0.5\unit,0.5\unit)
+		{
+			\tiny Seite \insertframenumber\ von \inserttotalframenumber
 		};
 	\end{tikzpicture}
 }
 
 \newcommand{\frameOneColumn}[4]
 {
-	\begin{frame}
+	\begin{frame}%
 		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
 		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
-			\begin{column}{14.5\unit}
-				\begin{minipage}[c][6\unit][#3]{\textwidth}
+			\begin{column}{15\unit}
+				\begin{minipage}[c][7\unit][#3]{\textwidth}
 					#4
 				\end{minipage}
 			\end{column}
@@ -91,42 +90,17 @@
 		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
 		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
-			\begin{column}{6.5\unit}
-				\begin{minipage}[c][6\unit][#3]{\textwidth}
+			\begin{column}{7.5\unit}
+				\begin{minipage}[c][7\unit][#3]{\textwidth}
 					#4
 				\end{minipage}
 			\end{column}
-			\begin{column}{6.5\unit}
-				\begin{minipage}[c][6\unit][#3]{\textwidth}
+			\begin{column}{7.5\unit}
+				\begin{minipage}[c][7\unit][#3]{\textwidth}
 					#5
 				\end{minipage}
 			\end{column}
 		\end{columns}
-	\end{frame}
-}
-
-\newcommand{\frameTwoColumnsReference}[6]
-{
-	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
-		\begin{minipage}[c][6\unit][c]{\textwidth}
-			\begin{columns}
-				\begin{column}{6.5\unit}
-					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
-						#4
-					\end{minipage}
-				\end{column}
-				\begin{column}{6.5\unit}
-					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
-						#5
-					\end{minipage}
-				\end{column}
-			\end{columns}
-			\vskip\itemsep
-			\centering
-			#6
-		\end{minipage}
 	\end{frame}
 }
 
@@ -136,52 +110,22 @@
 		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
 		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
 		\begin{columns}
-			\begin{column}{4.333\unit}
-				\begin{minipage}[c][6\unit][#3]{\textwidth}
+			\begin{column}{5\unit}
+				\begin{minipage}[c][7\unit][#3]{\textwidth}
 					#4
 				\end{minipage}
 			\end{column}
-			\begin{column}{4.333\unit}
-				\begin{minipage}[c][6\unit][#3]{\textwidth}
+			\begin{column}{5\unit}
+				\begin{minipage}[c][7\unit][#3]{\textwidth}
 					#5
 				\end{minipage}
 			\end{column}
-			\begin{column}{4.333\unit}
-				\begin{minipage}[c][6\unit][#3]{\textwidth}
+			\begin{column}{5\unit}
+				\begin{minipage}[c][7\unit][#3]{\textwidth}
 					#6
 				\end{minipage}
 			\end{column}
 		\end{columns}
-	\end{frame}
-}
-
-\newcommand{\frameThreeColumnsReference}[7]
-{
-	\begin{frame}
-		\frametitle{\ifthenelse{\equal{#1}{}}{\defaultframetitle}{#1}}
-		\framesubtitle{\ifthenelse{\equal{#2}{}}{\defaultframesubtitle}{#2}}
-		\begin{minipage}[c][6\unit][c]{\textwidth}
-			\begin{columns}
-				\begin{column}{4.333\unit}
-					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
-						#4
-					\end{minipage}
-				\end{column}
-				\begin{column}{4.333\unit}
-					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
-						#5
-					\end{minipage}
-				\end{column}
-				\begin{column}{4.333\unit}
-					\begin{minipage}[c][4.5\unit][#3]{\textwidth}
-						#6
-					\end{minipage}
-				\end{column}
-			\end{columns}
-			\vskip\itemsep
-			\centering
-			#7
-		\end{minipage}
 	\end{frame}
 }
 
